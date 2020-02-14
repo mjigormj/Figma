@@ -1,12 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends Component{
+
+  constructor(){
+    super();
+    this.state = {
+      lista: [
+        {
+          nome: "Projeto 1",
+          descricao: "descrição do projeto 1",
+          usuario: "Nome do Autor",
+          likes: "1"
+        }
+      ]
+    };
+
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:8080/api/projetos")
+    .then(res => res.json())
+    .then((result) =>
+      this.setState({lista: result.data})
+    )
+  }
+
+render() {
   return (
     <>
     <div class="ui menu inverted fixed">
-  <a class="item">Milton</a>
+  <a class="item">roberto</a>
   <button class="ui button primary"> criar projeto</button>
   <div class="ui icon input">
   <input type="text" placeholder="Search..." />
@@ -19,8 +44,8 @@ function App() {
   <div class="ui card">
   <div class="image"><img src="/images/avatar/large/matthew.png" /></div>
   <div class="content">
-    <div class="header">Matthew</div>
-    <div class="meta"><span class="date">Joined in 2015</span></div>
+  <div class="header">{projeto.nome}</div>
+  <div class="meta"><span class="date">{projeto.usuario}</span></div>
     <div class="description">Matthew is a musician living in Nashville.</div>
   </div>
   <div class="extra content">
@@ -35,5 +60,5 @@ function App() {
 </>
   );
 }
-
+}
 export default App;
