@@ -6,6 +6,18 @@ body{
   background-color: #282c34;
 }
 
+#grid-projetos{
+  padding: 50px;
+}
+
+.botao-like{
+  cursor: pointer;
+}
+
+.column{
+  margin-top: 50px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

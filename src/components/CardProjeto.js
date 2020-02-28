@@ -6,13 +6,16 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = { lista: [] };
+    this.state = {
+      likes: 0
+    }
+    this.addLike = this.addLike.bind(this);
   }
 
-    constructor(){
-        super();
-        this.state = { likes: likes}
-    }
+  constructor() {
+    super();
+    this.state = { likes: likes }
+  }
 
   componentDidMount() {
     fetch("http://localhost:8080/api/projetos")
@@ -40,11 +43,11 @@ class App extends Component {
             this.state.lista.map(projeto => {
               return (
                 <CardProjeto
-                  key={projeto.id} 
-                  nome={projeto.nome} 
-                  usuario={projeto.usuario} 
-                  descricao={projeto.descricao} 
-                  likes={projeto.likes} 
+                  key={projeto.id}
+                  nome={projeto.nome}
+                  usuario={projeto.usuario}
+                  descricao={projeto.descricao}
+                  likes={projeto.likes}
                   id={projeto.id}
                 />)
             })
