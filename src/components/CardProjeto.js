@@ -31,6 +31,9 @@ class App extends Component {
         <div className="ui inverted fixed huge menu">
           <div className="ui container">
             <a href="index.html" className="item">CraudioFunding</a>
+            <div className="ricardo">
+              <img src="img/milos.jpeg" />
+            </div>
             <button className="ui primary button">criar projeto</button>
             <div className="ui icon input right menu">
               <input type="text" placeholder="procurar projeto..." />

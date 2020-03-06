@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Button, Modal } from 'semantic-ui-react';
 
-cons ModalNovoProjeto = () => (
+/*cons ModalNovoProjeto = () => (
     <Modal tringger={<Button className="ui primary button"> criar projeto</Button>}>
         <Modal.Content>
             <Modal.Description>
@@ -24,6 +24,38 @@ cons ModalNovoProjeto = () => (
         </Modal.Content>
     </Modal>
       
-)
+) */
+
+class ModalNovoProjeto extends Component {
+    constructor(){
+        super()
+        this.state = {
+            nome: '',
+            usuario: '',
+            descricao: '',
+            modalOpen: false
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleOpen = () => this.setState({ modalOpen: tru })
+    handleClose = () => this.setState({ modalOpen: false })
+
+    handleSubmit(e){
+        e.preventDefault()
+        this.props.adicionarProjeto(this.state)
+        this.handleClose()
+    }
+
+    render(){
+        return(
+            <Modal
+                trigger={<Button onClick={this.handleOpen} className="ui primary button">criar projeto</Button>}
+                open={this.state.modalOpen}
+                onClose
+        )
+    }
+}
 
 export default ModalNovoProjeto
